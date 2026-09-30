@@ -9,9 +9,4 @@ public class Park
     {
         
     }
-
-    public int sampleMethod(int y)
-    {
-        
-    }
 }

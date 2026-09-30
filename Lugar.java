@@ -1,16 +1,18 @@
 public class Lugar
 {
-    private int numeroLugar;
-    private boolean livreOcupado;
-    private String Autocarro;
+    private String numeroLugar;
+    private boolean isOcupado;
+    private Autocarro autocarroEstacionado;
 
     public Lugar()
     {
         
     }
-
-    public int sampleMethod(int y)
+    
+    public Lugar(String numeroLugar)
     {
-        
+        this.numeroLugar = numeroLugar;
+        this.isOcupado = false;
+        this.autocarroEstacionado = null;
     }
 }

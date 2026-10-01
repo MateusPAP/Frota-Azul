@@ -7,7 +7,7 @@ public class TesteAutocarro
              * funcionalidade para testar o construtor da classe autocarro
              */
             
-            // 1. Criar um objeto o tipo autocarro
+            // 1. Criar um objeto o tipo autocarro e lugar
             // Instanciar
             
             Autocarro autocarro = new Autocarro("xx-xx-xx", "#xxxx", 101, true, 101.00);

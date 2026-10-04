@@ -73,7 +73,7 @@ public class Autocarro
     
     public String toString ()
     {
-        String resultado = "";
+        String resultadoT = "";
         
         StringBuilder sb = new StringBuilder();
         
@@ -83,8 +83,8 @@ public class Autocarro
         sb.append("\nAr condicionado: " + this.arCondicionado);
         sb.append("\nN.º Kms: " + this.kms);
         
-        resultado = sb.toString();
+        resultadoT = sb.toString();
         
-        return resultado;
+        return resultadoT;
     }
 }

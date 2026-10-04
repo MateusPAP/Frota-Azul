@@ -31,19 +31,27 @@ public class Lugar
         return this.isOcupado;
     }
     
-    public void setIsOcupado(boolean estaOcupado)
-    {
-        this.isOcupado = estaOcupado;
-    }
-    
     public Autocarro getAutocarroEstacionado()
     {
         return this.autocarroEstacionado;
     }
     
-    public void setAutocarroEstacionado(Autocarro temAutocarro)
+    public void EstacionarAutocarro(Autocarro autocarroEstacionado)
     {
-        this.autocarroEstacionado = temAutocarro;
+        if(this.isOcupado == false)
+        {
+            this.autocarroEstacionado = autocarroEstacionado;
+            isOcupado = true;
+        }
+    }
+    
+    public void DestacionarAutocarro()
+    {
+        if(this.isOcupado == true)
+        {
+            this.autocarroEstacionado = null;
+            isOcupado = false;
+        }
     }
     
     public String toString ()

@@ -16,9 +16,19 @@ public class Autocarro
     {
         this.matricula = matricula;
         this.cor = cor;
-        this.numLugares = numLugares;
+        
+        // Não seja possível inserir números de lugares negativos ou igual a 0
+        if(numLugares >= 1)
+        {
+            this.numLugares = numLugares;
+        }
+        
         this.arCondicionado = arCondicionado;
-        this.kms = kms;
+        
+        if(kms >= 1)
+        {
+            this.kms = kms;
+        }
     }
     
     public String getMatricula()

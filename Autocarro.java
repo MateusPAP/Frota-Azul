@@ -1,5 +1,7 @@
 public class Autocarro
 {
+    static int MIN_LUGARES = 10;
+    
     //Vars de Instância
     private String matricula;             // "xx-xx-xx || xxxxxx"
     private String cor;                  // "#xxxxxx"
@@ -16,19 +18,9 @@ public class Autocarro
     {
         this.matricula = matricula;
         this.cor = cor;
-        
-        // Não seja possível inserir números de lugares negativos ou igual a 0
-        if(numLugares >= 1)
-        {
-            this.numLugares = numLugares;
-        }
-        
+        this.numLugares = numLugares;
         this.arCondicionado = arCondicionado;
-        
-        if(kms >= 1)
-        {
-            this.kms = kms;
-        }
+        this.kms = kms;
     }
     
     public String getMatricula()
@@ -96,5 +88,25 @@ public class Autocarro
         resultadoT = sb.toString();
         
         return resultadoT;
+    }
+    
+    static boolean validaKms(double kmsAvalidar)
+    {
+        if(kmsAvalidar >= 1)
+        {
+            return true;
+        }
+        
+        return false;
+    }
+    
+    static boolean validarNumLugares(int lugaresValidar)
+    {
+        if(lugaresValidar >= MIN_LUGARES)
+        {
+            return true;
+        }
+        
+        return false;
     }
 }

@@ -1,7 +1,0 @@
-#BlueJ class context
-comment0.target=Park
-comment1.params=
-comment1.target=Park()
-comment2.params=nome\ morada
-comment2.target=void\ Park(java.lang.String,\ java.lang.String)
-numComments=3

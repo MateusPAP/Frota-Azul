@@ -145,5 +145,28 @@ public class TesteAutocarro
             {
                 System.out.println("O teste matricula setKms não correspondente");
             }
+            
+            String matricula = "uu-uu-uu";
+            String corA10 = "Azulinho";
+            
+            int numLugaresValidar = 100;
+            
+            boolean acA10 = true;
+            
+            double kmsAvalidar = -2.5;
+    
+            
+            boolean kmsValidados = Autocarro.validaKms(kmsAvalidar);
+            boolean numLugaresValidados = Autocarro.validarNumLugares(numLugaresValidar);
+            
+            if(kmsValidados && numLugaresValidados)
+            {
+                Autocarro a10 = new Autocarro(matricula, corA10, numLugaresValidar, acA10, kmsAvalidar);
+                System.out.println("D. Custódia autocarro criado com sucesso");
+            }
+            else
+            {
+                System.out.println("Dados inválidos, tente novamente");
+            }
         }
 }

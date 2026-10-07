@@ -1,8 +1,8 @@
 public class Lugar
 {
-    private String numeroLugar;
-    private boolean isOcupado;
-    private Autocarro autocarroEstacionado;
+    private String numeroLugar;                 // a1
+    private boolean isOcupado;                  // true
+    private Autocarro autocarroEstacionado;  
 
     public Lugar()
     {
@@ -31,27 +31,38 @@ public class Lugar
         return this.isOcupado;
     }
     
+    public void setIsOcupado(boolean novoValor)
+    {
+        this.isOcupado = novoValor;
+    }
+    
     public Autocarro getAutocarroEstacionado()
     {
         return this.autocarroEstacionado;
     }
     
-    public void EstacionarAutocarro(Autocarro autocarroEstacionado)
+    public boolean EstacionarAutocarro(Autocarro autocarroEstacionado)
     {
-        if(this.isOcupado == false)
+        if(! this.isOcupado)
         {
             this.autocarroEstacionado = autocarroEstacionado;
             isOcupado = true;
+            return true;
         }
+        
+        return false;
     }
     
-    public void DestacionarAutocarro()
+    public boolean DestacionarAutocarro()
     {
-        if(this.isOcupado == true)
+        if(this.isOcupado)
         {
             this.autocarroEstacionado = null;
             isOcupado = false;
+            return true;
         }
+        
+        return false;
     }
     
     public String toString ()

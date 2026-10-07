@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Parque
+comment1.params=
+comment1.target=Parque()
+comment2.params=nome\ morada\ numLugares
+comment2.target=Parque(java.lang.String,\ java.lang.String,\ int)
+comment3.params=
+comment3.target=java.util.ArrayList\ getLugares()
+comment4.params=
+comment4.target=int\ getTotalNumLugares()
+comment5.params=a
+comment5.target=boolean\ estacionar(Autocarro)
+numComments=6

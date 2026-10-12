@@ -16,7 +16,7 @@ public class Parque
         
         this.lugares = new ArrayList(numLugares);
         
-        for(int i = 0; i < numLugares; i++)
+        for(int i = 0; i < numLugares; i ++)
             {
                 String numLugar = "L-" +1;
                 
@@ -43,7 +43,7 @@ public class Parque
             int inicio = this.lugares.size() + 1;
             int terminar = this.lugares.size() + 1 + lugaresAd;
             
-            for(int i = inicio; i < terminar; i++)
+            for(int i = inicio; i < terminar; i ++)
             {
                 String numLugar = "L-" +1;
                 
@@ -60,7 +60,7 @@ public class Parque
     
     public boolean estacionar(Autocarro a)
     {
-        for(int i = 0; i < this.lugares.size(); i++)
+        for(int i = 0; i < this.lugares.size(); i ++)
         {
             if(! this.lugares.get(i).getIsOcupado())
             {
@@ -77,27 +77,29 @@ public class Parque
     {
         int lugaresAv = 0;
         
-        for(int i = 0; i < this.lugares.size(); i++)
+        for(Lugar l : this.lugares)
         {
-            if(!this.lugares.get(i).getIsOcupado())
+            if(! l.getIsOcupado())
             {
-                this.lugares.get(i).getNumeroLugar();
-                lugaresAv++;
+                lugaresAv = lugaresAv + 1;
             }
         }
 
         return lugaresAv;
     }
     
-    public boolean retirarAutocarro(String matricula)
+    public boolean retirarAutocarro(Autocarro autocarroRetirar)
     {
-        for(int i = 0; i < this.lugares.size(); i++)
+        for(Lugar l : this.lugares)
         {
-            if(matricula == this.lugares.get(i).getAutocarroEstacionado().getMatricula())
+            if(l.getIsOcupado())
             {
-                this.lugares.get(i).DestacionarAutocarro();
-                
-                return true;
+                if(l.getIsOcupado() && l.getAutocarroEstacionado().getMatricula() == autocarroRetirar.getMatricula())
+                {
+                    l.DestacionarAutocarro();
+                    
+                    return true;
+                }
             }
         }
     
@@ -106,11 +108,11 @@ public class Parque
     
     public String procurarLugarAutocarro(String matricula)
     {
-        for(int i = 0; i < this.lugares.size(); i++)
+        for(Lugar l : this.lugares)
         {
-            if(matricula == this.lugares.get(i).getAutocarroEstacionado().getMatricula())
+            if(matricula == l.getAutocarroEstacionado().getMatricula())
             {
-                return this.lugares.get(i).getAutocarroEstacionado().toString();
+                return l.getAutocarroEstacionado().toString();
             }
         }
     

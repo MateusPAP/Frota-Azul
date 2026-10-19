@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=Teste
+comment1.params=nomeDoTeste
+comment1.target=void\ iniciarTeste(java.lang.String)
+comment2.params=nomeDoTeste
+comment2.target=void\ fimTeste(java.lang.String)
+comment3.params=nomeDoTeste\ resultadoDoTeste
+comment3.target=void\ mensagemDoValidarTeste(java.lang.String,\ boolean)
+numComments=4

@@ -1,121 +1,108 @@
 import java.util.ArrayList;
-
 public class Parque
 {
-    // variáveis de instância - substitua o exemplo abaixo pelo seu próprio
     private String nome;
     private String morada;
     private ArrayList<Lugar> lugares;
-
-    public Parque(){}
+    private int numDeLugares;
     
-    public Parque(String nome, String morada, int numLugares)
-    {
+    public Parque(){
+    }
+    
+    public Parque(String nome, String morada, int numDeLugares){
         this.nome = nome;
         this.morada = morada;
-        
-        this.lugares = new ArrayList(numLugares);
-        
-        for(int i = 0; i < numLugares; i ++)
-            {
-                String numLugar = "L-" +1;
-                
-                Lugar lTemp = new Lugar(numLugar);
-                
-                this.lugares.add(lTemp);
-            }
-    }
-    
-    public ArrayList<Lugar> getLugares()
-    {
-        return this.lugares;
-    }
-    
-    public int getTotalNumLugares()
-    {
-        return this.lugares.size();
-    }
-    
-    public boolean adicionarLugares(int lugaresAd)
-    {
-        if(lugaresAd > 0)
-        {
-            int inicio = this.lugares.size() + 1;
-            int terminar = this.lugares.size() + 1 + lugaresAd;
+        this.lugares = new ArrayList<>(numDeLugares);
+        this.numDeLugares = numDeLugares;
+        for(int i = 0; i < numDeLugares; i++) {
+            int numLugar =  i;
             
-            for(int i = inicio; i < terminar; i ++)
-            {
-                String numLugar = "L-" +1;
-                
-                Lugar lTemp = new Lugar(numLugar);
-                
-                this.lugares.add(lTemp);
+            Lugar lTemp = new Lugar(getNumDeLugares());
+            
+            this.lugares.add(lTemp);
+        }
+    }
+    
+    public String getNome(){
+        return this.nome;
+    } 
+    
+    public String getMorada(){
+        return morada;
+    }
+    
+    public void setNome(String nome){
+        this.nome = nome;
+    }
+    
+    public void setMorada(String morada){
+        this.morada = morada;
+    }
+    
+    public int getNumDeLugares(){
+        return numDeLugares;
+    }
+    
+    public void setNumDelugares(int numDeLugares){
+        this.numDeLugares = numDeLugares;
+    }
+    
+    public ArrayList<Lugar> getLugares(){
+        return lugares;
+    }
+    
+    public void adicionarLugar(Lugar novoLugar){
+        if(lugares.size() < numDeLugares){
+            lugares.add(novoLugar);
+        } else {
+            System.out.println("O parque está cheio");
+        }
+    }
+    
+
+    public boolean estacionar(Autocarro a){
+        for( Lugar lugar : lugares)
+        {
+            if(!lugar.getIsOcupado()){
+                lugar.EstacionarAutocarro(a);
+
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public int lugaresAvailable(){
+        int lugaresAvailable = 0;
+        for(Lugar lugar : this.lugares){
+            if(!lugar.getIsOcupado()){
+                lugaresAvailable += 1;
+            }
+        }
+
+        return lugaresAvailable;
+    }
+
+    public boolean removerAutocarro (Autocarro removerA){
+        for(Lugar lugar : this.lugares){
+            if(lugar.getIsOcupado() && lugar.getAutocarroEstacionado().getMatricula() == removerA.getMatricula()){
+                lugar.DestacionarAutocarro();
             }
             
             return true;
         }
-        
-        return false;
-    }
-    
-    public boolean estacionar(Autocarro a)
-    {
-        for(int i = 0; i < this.lugares.size(); i ++)
-        {
-            if(! this.lugares.get(i).getIsOcupado())
-            {
-                this.lugares.get(i).EstacionarAutocarro(a);
-                
-                return true;
-            }
-        }
-        
-        return false;
-    }
-    
-    public int lugaresAvailable()
-    {
-        int lugaresAv = 0;
-        
-        for(Lugar l : this.lugares)
-        {
-            if(! l.getIsOcupado())
-            {
-                lugaresAv = lugaresAv + 1;
-            }
-        }
 
-        return lugaresAv;
+        return false;
     }
     
-    public boolean retirarAutocarro(Autocarro autocarroRetirar)
-    {
-        for(Lugar l : this.lugares)
-        {
-            if(l.getIsOcupado())
+    public void lugarDoAutocarro(Autocarro procurarA) {
+        for(Lugar lugar : lugares)
             {
-                if(l.getIsOcupado() && l.getAutocarroEstacionado().getMatricula() == autocarroRetirar.getMatricula())
-                {
-                    l.DestacionarAutocarro();
-                    
-                    return true;
+                if(lugar.getAutocarroEstacionado() == procurarA){
+                 int numLugar = lugar.getNumeroLugar();
+                
+                 System.out.println("Lugar: " + numLugar);
                 }
             }
         }
-    
-        return false;
     }
-    
-    public String procurarLugarAutocarro(String matricula)
-    {
-        for(Lugar l : this.lugares)
-        {
-            if(matricula == l.getAutocarroEstacionado().getMatricula())
-            {
-                return l.getAutocarroEstacionado().toString();
-            }
-        }
-    
-        return "Tente novamente";
-    }
-}

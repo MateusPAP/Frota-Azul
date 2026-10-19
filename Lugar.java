@@ -1,6 +1,6 @@
 public class Lugar
 {
-    private String numeroLugar;                 // a1
+    private int numeroLugar;                 // a1
     private boolean isOcupado;                  // true
     private Autocarro autocarroEstacionado;  
 
@@ -9,19 +9,19 @@ public class Lugar
         
     }
     
-    public Lugar(String numeroLugar)
+    public Lugar(int numeroLugar)
     {
         this.numeroLugar = numeroLugar;
         this.isOcupado = false;
         this.autocarroEstacionado = null;
     }
     
-    public String getNumeroLugar()
+    public int getNumeroLugar()
     {
         return this.numeroLugar;
     }
     
-    public void setNumeroLugar(String nlr)
+    public void setNumeroLugar(int nlr)
     {
         this.numeroLugar = nlr;
     }
